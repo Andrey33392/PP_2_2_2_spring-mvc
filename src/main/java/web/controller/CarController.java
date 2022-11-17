@@ -5,27 +5,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import web.dao.CarDaoImp;
+
+import web.dao.CarDao;
+
 
 
 @Controller
 public class CarController {
-    private final CarDaoImp carDaoImp;
+    private final CarDao carDao;
 
-    public CarController(CarDaoImp carDaoImp) {
-        this.carDaoImp = carDaoImp;
+    public CarController(CarDao carDao) {
+        this.carDao = carDao;
     }
 
     @GetMapping("/cars")
     public String list(Model model) {
-        model.addAttribute("cars", carDaoImp.LIST_CARS());
+        model.addAttribute("cars", carDao.listCars());
         return "index1";
     }
 
 
     @GetMapping("/cars/{count}")
     public String show(@PathVariable("count") int count, Model model) {
-        model.addAttribute("car", carDaoImp.show(count));
+        model.addAttribute("car", carDao.show(count));
 
         return "cars";
     }

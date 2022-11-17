@@ -10,22 +10,22 @@ import java.util.List;
 
 
 @Component
-public class CarDaoImp implements DaoCar {
-    private static int ID;
+public class CarDaoImp implements CarDao {
+    private  int id;
     private final List<Car> cars;
 
     {
         cars = new ArrayList<>();
-        cars.add(new Car(++ID, "Citroen", "eloy", 123894));
-        cars.add(new Car(++ID, "Kia", "black", 365987));
-        cars.add(new Car(++ID, "Ford", "cian", 951357));
-        cars.add(new Car(++ID, "Volvo", "red", 491367));
-        cars.add(new Car(++ID, "Lada", "white", 369852));
+        cars.add(new Car(++id, "Citroen", "eloy", 123894));
+        cars.add(new Car(++id, "Kia", "black", 365987));
+        cars.add(new Car(++id, "Ford", "cian", 951357));
+        cars.add(new Car(++id, "Volvo", "red", 491367));
+        cars.add(new Car(++id, "Lada", "white", 369852));
     }
 
 
     @Override
-    public List<Car> LIST_CARS() {
+    public List<Car> listCars() {
         return cars;
     }
 

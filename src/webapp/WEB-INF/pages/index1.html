@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count</title>
+    <style>table th, table td {
+        padding: 5px;
+    }
+
+    </style>
+</head>
+<body>
+<h1>ListCars</h1>
+<table border="1">
+    <tr>
+        <th>model</th>
+        <th>color</th>
+        <th>win</th>
+    </tr>
+    <tr th:each="car : ${cars}">
+        <td><a th:href="@{/cars/{count}(count=${car.getCount()})}" th:text="${car.getModel()}">user</a></td>
+        <td><a th:href="@{/cars/{count}(count=${car.getCount()})}" th:text="${car.getColor()}">user</a></td>
+        <td><a th:href="@{/cars/{count}(count=${car.getCount()})}" th:text="${car.getWin()}">user</a></td>
+    </tr>
+
+</table>
+
+</body>
+</html>
